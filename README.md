@@ -1,6 +1,14 @@
 # Kubernetes-Lab
 Kubernetes Cluster (Control Plane + Worker)
 # Kubernetes Cluster Bootstrap (kubeadm)
+# Kubernetes Cluster Bootstrap (kubeadm)
+
+![release](https://img.shields.io/badge/release-v0.1.0-blue)
+![kubernetes](https://img.shields.io/badge/kubernetes-v1.34.x-326ce5)
+![runtime](https://img.shields.io/badge/runtime-containerd-575757)
+![cni](https://img.shields.io/badge/network-Flannel-blue)
+![docs](https://img.shields.io/badge/status-documentation--first-orange)
+![license](https://img.shields.io/badge/license-MIT-green)
 
 Debian / Ubuntu · containerd · Flannel · NodePort
 
