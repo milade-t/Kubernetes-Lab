@@ -1,112 +1,125 @@
-01 — System Requirements
+# 01 – System Requirements
 
-This guide assumes a clean Linux machine with no Kubernetes components installed.
+This guide assumes a **clean Linux machine** with no Kubernetes components installed.
 
-1. Operating System
+---
 
-Install one of:
+## 1. Operating System
 
-Ubuntu 22.04 LTS (recommended)
+Install one of the following:
 
-Debian 12+
+- Ubuntu 22.04 LTS (recommended)
+- Debian 12
 
-Check:
+Verify OS:
 
+```bash
 cat /etc/os-release
-2. Hardware (Per Node)
+```
 
-Minimum:
+---
 
-2 CPU
+## 2. Hardware Requirements (Per Node)
 
-4GB RAM
+### Minimum
 
-30GB Disk
+- 2 CPU
+- 4GB RAM
+- 30GB Disk
 
-Recommended:
+### Recommended
 
-2–4 CPU
-
-8GB RAM
-
-40GB Disk
+- 2–4 CPU
+- 8GB RAM
+- 40GB Disk
 
 Check CPU:
 
+```bash
 nproc
+```
 
-Check memory:
+Check Memory:
 
+```bash
 free -h
+```
 
-Check disk:
+Check Disk:
 
+```bash
 df -h
+```
 
 Ensure at least 20GB free before starting.
 
-3. Unique Hostname
+---
+
+## 3. Unique Hostname
 
 Each node must have a unique hostname.
 
 Check:
 
+```bash
 hostnamectl
+```
 
 Set if needed:
 
+```bash
 sudo hostnamectl set-hostname control-plane
+```
 
-(or worker for worker node)
+---
 
-4. Network Connectivity
+## 4. Network Connectivity
 
-Nodes must be able to reach each other via IP.
+Nodes must reach each other via IP.
 
 Test:
 
+```bash
 ping <other-node-ip>
+```
 
-Control plane must later expose port 6443.
+Control plane must allow port 6443.
 
-5. Clean System Requirement
+---
 
-Machine must NOT have:
+## 5. Clean System Validation
 
-Docker installed
-
-snap Kubernetes packages
-
-Previous kubeadm cluster
-
-Old CNI configuration
+This must be a fresh system.
 
 Check for existing Kubernetes directories:
 
+```bash
 ls /etc/kubernetes
+```
 
-If directory exists and this is not a new install, perform reset before continuing.
+If directory exists and this is not a reinstall, stop and clean the system.
 
-6. Swap Must Be Disabled
+---
+
+## 6. Swap Must Be Disabled
 
 Check:
 
+```bash
 swapon --show
+```
 
-If swap is enabled, it will be disabled in the next phase.
+If swap is enabled, it will be disabled during Linux preparation.
 
-Pre-Deployment Checklist
+---
 
- Clean OS installed
+## Pre-Deployment Checklist
 
- Minimum hardware satisfied
-
- Unique hostname configured
-
- Network connectivity verified
-
- No previous Kubernetes installation
+- Minimum hardware satisfied
+- Unique hostname configured
+- Network connectivity verified
+- No previous Kubernetes installation
 
 If all checks pass, proceed to:
 
-02-linux-preparation.md
+👉 `02-linux-preparation.md`
