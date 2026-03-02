@@ -1,7 +1,4 @@
-# Kubernetes-Lab
-Kubernetes Cluster (Control Plane + Worker)
 # Kubernetes Cluster Bootstrap (kubeadm)
-
 ![release](https://img.shields.io/badge/release-v0.1.0-blue)
 ![kubernetes](https://img.shields.io/badge/kubernetes-v1.34.x-326ce5)
 ![runtime](https://img.shields.io/badge/runtime-containerd-575757)
