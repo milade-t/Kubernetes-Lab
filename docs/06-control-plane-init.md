@@ -1,71 +1,87 @@
-06 — Initialize Control Plane
+# 06 – Initialize Control Plane
 
-Perform on the control plane node only.
+Perform these steps on the **control plane node only**.
 
-1. Initialize Cluster
+---
+
+## 1. Initialize the Cluster
+
+```bash
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+```
 
-Wait until initialization completes.
+Wait for initialization to complete.
 
 At the end, kubeadm will print:
 
-Join command (save this)
+- A **worker join command** (save this)
+- Instructions to configure `kubectl`
 
-Instructions to configure kubectl
+---
 
-2. Configure kubectl Access
+## 2. Configure kubectl Access
 
-Run as your normal user:
+Run as your normal (non-root) user:
 
+```bash
 mkdir -p $HOME/.kube
 sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 
-Test access:
+Test cluster access:
 
+```bash
 kubectl get nodes
+```
 
 Expected:
 
+```
 STATUS = NotReady
+```
 
-This is normal until CNI is installed.
+This is normal until a CNI plugin is installed.
 
-3. Confirm Control Plane Pods
+---
+
+## 3. Confirm Control Plane Pods
+
+```bash
 kubectl get pods -n kube-system
+```
 
 You should see:
 
-kube-apiserver
+- kube-apiserver
+- kube-controller-manager
+- kube-scheduler
+- etcd
+- kube-proxy
 
-kube-controller-manager
+CoreDNS will likely show `Pending` until CNI is installed.
 
-kube-scheduler
+---
 
-etcd
-
-kube-proxy
-
-CoreDNS will show Pending until CNI is installed.
-
-4. Save Worker Join Command
+## 4. Save Worker Join Command
 
 If you did not copy the join command, regenerate it:
 
+```bash
 kubeadm token create --print-join-command
+```
 
-Save this for worker node setup.
+Save this command for worker node setup.
 
-Validation Checklist
+---
 
- kubeadm init completed successfully
+## Validation Checklist
 
- kubectl configured
-
- control plane pods running
-
- join command saved
+- kubeadm init completed successfully
+- kubectl configured correctly
+- control plane pods running
+- join command saved
 
 Next step:
 
-07-install-cni.md
+👉 `07-install-cni.md`

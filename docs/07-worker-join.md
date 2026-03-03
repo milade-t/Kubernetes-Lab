@@ -1,38 +1,67 @@
-07 — Install CNI (Flannel)
+# 07 – Install CNI (Flannel)
 
-Perform on the control plane node.
+Perform these steps on the **control plane node**.
 
-1. Apply Flannel Manifest
+---
+
+## 1. Apply Flannel Manifest
+
+```bash
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
-2. Verify Flannel Deployment
+```
+
+---
+
+## 2. Verify Flannel Deployment
+
+```bash
 kubectl get pods -n kube-flannel
+```
 
 Wait until all pods show:
 
+```
 STATUS = Running
-3. Verify Node Status
+```
+
+---
+
+## 3. Verify Node Status
+
+```bash
 kubectl get nodes
+```
 
 Expected:
 
+```
 STATUS = Ready
+```
 
-If still NotReady, wait 1–2 minutes and check again.
+If still `NotReady`, wait 1–2 minutes and check again.
 
-4. Verify CoreDNS
+---
+
+## 4. Verify CoreDNS
+
+```bash
 kubectl get pods -n kube-system
+```
 
 CoreDNS should now show:
 
+```
 Running
-Validation Checklist
+```
 
- Flannel pods running
+---
 
- Node status = Ready
+## Validation Checklist
 
- CoreDNS running
+- Flannel pods running
+- Node status = Ready
+- CoreDNS running
 
 Next step:
 
-08-worker-join.md
+👉 `08-worker-join.md`
