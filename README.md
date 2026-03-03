@@ -111,16 +111,6 @@ This repository does **not** cover:
 - Minimal narrative
 - Validation after every phase
 - Explicit failure recovery steps
-- No hidden automation
-
----
-
-## Future Roadmap
-
-- Automated bootstrap script
-- Pre-install validation script
-- Troubleshooting catalog
-- Upgrade workflow documentation
 
 ---
 
