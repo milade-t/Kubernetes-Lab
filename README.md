@@ -32,8 +32,9 @@ It documents the exact procedures required to bootstrap, validate, and troublesh
 
 ## Architecture
 
-<img width="1536" height="1024" alt="ChatGPT Image Mar 3, 2026, 08_30_24 AM" src="https://github.com/user-attachments/assets/2e934e54-4035-4c36-89e3-cbbc829dff8e" />
+<img width="1536" height="835" alt="ChatGPT Image Mar 3, 2026, 08_30_24 AM" src="https://github.com/user-attachments/assets/19bc8d62-fe20-4bda-bc05-393073adb476" />
 
+---
 
 Topology:
 
